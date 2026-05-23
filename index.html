@@ -120,35 +120,109 @@
     .social a:hover {
       color: var(--destaque-inverso);
     }
-    .detalhes{
+
+    .detalhes {
       grid-column: 2;
     }
 
-    article{
+    article {
       background-color: var(--fundo-card);
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 8px;
     }
 
-    article h2{
+    article h2 {
       color: var(--destaque);
       margin-bottom: 20px;
     }
-.div-container{
-  position: relative;
-  width: 100%;
-  margin: auto;
-  aspect-ratio: 16/9;
-}
-.div-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-}
+
+    .div-container {
+      position: relative;
+      width: 100%;
+      margin: auto;
+      aspect-ratio: 16/9;
+    }
+
+    .div-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+
+    .skill-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .skill-container .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .skill-container .nome {
+      font-weight: bold;
+      color: var(--texto)
+    }
+
+    .skill-container .porcent {
+      font-weight: bold;
+      color: var(--destaque);
+    }
+
+    .skill-container .barra {
+      width: 100%;
+      height: 8px;
+      background-color: var(--fundo-principal);
+      border: 4px;
+    }
+
+    .skill-container .progresso {
+      height: 100%;
+      background-color: var(--destaque-inverso);
+      border-radius: 4px;
+    }
+
+    @media screen and (min-width: 768px) {
+      .skill-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .formacao-container{
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+    .curso{
+      background-color: var(--fundo-principal);
+      border-radius: 8px;
+      border-left: 5px solid var(--destaque-inverso);
+      padding-left: 15px;
+      transition: border-width 0.5s,  border-color 0.5s;
+
+    }
+    .curso:hover{
+      border-left-width: 15px;
+    cursor: pointer;
+    border-color: var(--destaque)
+    }
+
+    .periodo{
+      font-size: 0.8em;
+      font-weight: bold;
+      color: var(--texto)
+    }
+
+    .instituicao{
+      color: var(--destaque-inverso);
+      font-size: 1.1em;
+    }
   </style>
 
 
@@ -196,13 +270,132 @@
         </div>
       </article><!--FIm video-->
       <article class="skills">
-<h2><i class="fa-solid fa-brain"></i> Minhas Skills</h2>
+        <h2><i class="fa-solid fa-brain"></i> Minhas Skills</h2>
+
+        <div class="skill-container">
+          <div class="item">
+            <div class="info">
+              <span class="nome">
+                <i class="fa-brands fa-html5"></i> HTML5
+              </span>
+              <span class="porcent">
+                65%
+              </span>
+            </div>
+            <div class="barra">
+              <div class="progresso" style="width: 65%; "></div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="info">
+              <span class="nome">
+                <i class="fa-brands fa-css3-alt"></i> CSS3
+              </span>
+              <span class="porcent">
+                85%
+              </span>
+            </div>
+            <div class="barra">
+              <div class="progresso" style="width: 85%; "></div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="info">
+              <span class="nome">
+                <i class="fa-brands fa-js"></i> JavaScript
+              </span>
+              <span class="porcent">
+                25%
+              </span>
+            </div>
+            <div class="barra">
+              <div class="progresso" style="width: 25%; "></div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="info">
+              <span class="nome">
+                <i class="fa-brands fa-tailwind-css"></i> Tailwind-css
+              </span>
+              <span class="porcent">
+                20%
+              </span>
+            </div>
+            <div class="barra">
+              <div class="progresso" style="width: 20%; "></div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="info">
+              <span class="nome">
+                <i class="fa-solid fa-comments"></i> Comunicação
+              </span>
+              <span class="porcent">
+                2%
+              </span>
+            </div>
+            <div class="barra">
+              <div class="progresso" style="width: 2%; "></div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="info">
+              <span class="nome">
+                <i class="fa-solid fa-people-group"></i> Trabalho em Equipe
+              </span>
+              <span class="porcent">
+                60%
+              </span>
+            </div>
+            <div class="barra">
+              <div class="progresso" style="width: 60%; "></div>
+            </div>
+          </div>
+
+
+        </div>
+
       </article><!--FIm skills-->
       <article class="formacao">
-<h2><i class="fa-solid fa-graduation-cap"></i> Formação </h2>
+        <h2><i class="fa-solid fa-graduation-cap"></i> Formação </h2>
+        <div class="formacao-container">
+          <div class="curso">
+            <p class="periodo">2006 - 2017</p>
+            <h3 class="instituicao">Escola Kazamatsuri</h3>
+            <p class="titulacao">Ensino médio</p>
+          </div>
+
+         <div class="curso">
+            <p class="periodo">2017 - 2018</p>
+            <h3 class="instituicao">Escola Kazamatsuri</h3>
+            <p class="titulacao">Informática Básica</p>
+          </div>
+
+          <div class="curso">
+            <p class="periodo">2019 - 2022</p>
+            <h3 class="instituicao">Escola Kazamatsuri</h3>
+            <p class="titulacao">Graduação em Enfermagem</p>
+          </div>
+
+                    <div class="curso">
+            <p class="periodo">2023 - 2024</p>
+            <h3 class="instituicao">Escola Kazamatsuri</h3>
+            <p class="titulacao">Graduação em Medicina</p>
+          </div>
+
+                    <div class="curso">
+            <p class="periodo">2024 - 2026</p>
+            <h3 class="instituicao">Escola Kazamatsuri</h3>
+            <p class="titulacao">Pós Graduação em Enfermagem</p>
+          </div>
+        </div>
       </article><!--FIm formação-->
       <article class="projetos">
-<h2><i class="fa-solid fa-trowel-bricks"></i> Projetos</h2>
+        <h2><i class="fa-solid fa-trowel-bricks"></i> Projetos</h2>
       </article><!--FIm projetos-->
     </section>
   </main>
