@@ -47,6 +47,9 @@
       display: flex;
       justify-content: flex-end;
       align-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1;
     }
 
     #menu ul {
@@ -159,69 +162,149 @@
       gap: 30px;
     }
 
-    .skill-container .info {
+    .skill-container.info {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .skill-container .nome {
+    .skill-container.nome {
       font-weight: bold;
       color: var(--texto)
     }
 
-    .skill-container .porcent {
+    .skill-container.porcent {
       font-weight: bold;
       color: var(--destaque);
     }
 
-    .skill-container .barra {
+    .skill-container.barra {
       width: 100%;
       height: 8px;
       background-color: var(--fundo-principal);
       border: 4px;
     }
 
-    .skill-container .progresso {
+    .skill-container.progresso {
       height: 100%;
       background-color: var(--destaque-inverso);
       border-radius: 4px;
     }
 
     @media screen and (min-width: 768px) {
+      main {
+        grid-template-columns: auto 300px 1fr auto;
+      }
+
+      .ficha {
+        grid-column: 2/3;
+        height: fit-content;
+        position: sticky;
+        top: 66px
+      }
+
+      .detalhes {
+        grid-column: 4/3;
+      }
+
       .skill-container {
         grid-template-columns: 1fr 1fr;
       }
+
+      .projeto-container.projeto {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+      }
+
+      .projeto-info {
+        max-width: 80%;
+      }
+
+      #ficha.foto {
+        aspect-ratio: 1/1;
+        max-width: 20%;
+        max-height: 200px;
+      }
     }
 
-    .formacao-container{
+    .formacao-container {
       display: flex;
       flex-direction: column-reverse;
       gap: 20px;
     }
-    .curso{
+
+    .curso {
       background-color: var(--fundo-principal);
       border-radius: 8px;
-      border-left: 5px solid var(--destaque-inverso);
+      border-left: 10px solid var(--destaque-inverso);
       padding-left: 15px;
-      transition: border-width 0.5s,  border-color 0.5s;
-
+      transition: border-width 0.5s, border-color 0.5s;
+      padding: 15px 15px 15px 15px;
     }
-    .curso:hover{
+
+    .curso:hover {
       border-left-width: 15px;
-    cursor: pointer;
-    border-color: var(--destaque)
+      cursor: pointer;
+      border-color: var(--destaque)
     }
 
-    .periodo{
+    .periodo {
       font-size: 0.8em;
       font-weight: bold;
       color: var(--texto)
     }
 
-    .instituicao{
+    .instituicao {
       color: var(--destaque-inverso);
       font-size: 1.1em;
+    }
+
+    .projeto-container {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+
+    .projeto {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background-color: var(--fundo-principal);
+      padding: 10px;
+      border-radius: 8px;
+      border-left: 10px solid var(--destaque-inverso);
+      transition: border-width 0.5s, border-color 0.5s;
+    }
+
+    .projeto:hover {
+      border-left-width: 15px;
+      cursor: pointer;
+      border-color: var(--destaque)
+    }
+
+    .foto {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    footer {
+      background-color: var(--destaque);
+      color: var(--texto-inverso);
+      text-align: center;
+      padding: 15px;
+    }
+
+    footer a {
+      color: var(--texto-inverso);
+      text-decoration: none;
+      font-weight: bolder;
+    }
+
+    footer a:hover {
+      color: var(--destaque-inverso);
     }
   </style>
 
@@ -232,18 +315,18 @@
   <header>
     <nav id="menu">
       <ul>
-        <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
-        <li><a href="#"><i class="fa-solid fa-brain"></i></a></li>
-        <li><a href="#"><i class="fa-solid fa-graduation-cap"></i></a></li>
-        <li><a href="#"><i class="fa-solid fa-trowel-bricks"></i></a></li>
-        <li><a href="#"><i class="fa-solid fa-moon"></i></a></li>
+        <li><a href="#video" class="link"><i class="fa-solid fa-house"></i></a></li>
+        <li><a href="#skills" class="link"><i class="fa-solid fa-brain"></i></a></li>
+        <li><a href="#formacao" class="link"><i class="fa-solid fa-graduation-cap"></i></a></li>
+        <li><a href="#projetos" class="link"><i class="fa-solid fa-trowel-bricks"></i></a></li>
+        <li><a href="#" id="botao-tema"><i class="fa-solid fa-moon"></i></a></li>
       </ul>
 
     </nav>
   </header>
 
   <main>
-    <section class="ficha">
+    <section id="ficha" class="ficha">
       <img src="imagens/akane=perfil.jpg" alt="akane" class="foto">
       <h1>Akane</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum expedita eveniet quo dolore quibusdam, minus,
@@ -258,9 +341,9 @@
       </div>
     </section>
 
-    <section class="detalhes">
+    <section id="detalhes" class="detalhes">
 
-      <article class="video">
+      <article id='video' class="video">
         <h2><i class="fa-solid fa-handshake"></i> Deixe-me apresentar</h2>
         <div class="div-container">
           <iframe class="div-container" src="https://www.youtube.com/embed/WWB01IuMvzA?si=bQw-DLFy0mdqY9UV"
@@ -269,7 +352,7 @@
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </article><!--FIm video-->
-      <article class="skills">
+      <article id="skills" class="skills">
         <h2><i class="fa-solid fa-brain"></i> Minhas Skills</h2>
 
         <div class="skill-container">
@@ -360,7 +443,7 @@
         </div>
 
       </article><!--FIm skills-->
-      <article class="formacao">
+      <article id="formacao" class="formacao">
         <h2><i class="fa-solid fa-graduation-cap"></i> Formação </h2>
         <div class="formacao-container">
           <div class="curso">
@@ -369,7 +452,7 @@
             <p class="titulacao">Ensino médio</p>
           </div>
 
-         <div class="curso">
+          <div class="curso">
             <p class="periodo">2017 - 2018</p>
             <h3 class="instituicao">Escola Kazamatsuri</h3>
             <p class="titulacao">Informática Básica</p>
@@ -381,27 +464,81 @@
             <p class="titulacao">Graduação em Enfermagem</p>
           </div>
 
-                    <div class="curso">
+          <div class="curso">
             <p class="periodo">2023 - 2024</p>
             <h3 class="instituicao">Escola Kazamatsuri</h3>
             <p class="titulacao">Graduação em Medicina</p>
           </div>
 
-                    <div class="curso">
+          <div class="curso">
             <p class="periodo">2024 - 2026</p>
             <h3 class="instituicao">Escola Kazamatsuri</h3>
             <p class="titulacao">Pós Graduação em Enfermagem</p>
           </div>
         </div>
       </article><!--FIm formação-->
-      <article class="projetos">
+      <article id="projetos" class="projetos">
         <h2><i class="fa-solid fa-trowel-bricks"></i> Projetos</h2>
+        <div class="projeto-container">
+          <div class="projeto">
+            <img src="imagens/projeto-01-videos.jpg" alt="" class="foto">
+            <div class="projeto-info">
+              <p class="periodo">2025</p>
+              <h3 class="titulo">Projeot de Vídeos</h3>
+              <p>Projeto construído para treinar a inserção de vídeos em nosso site.</p>
+
+              <details class="descricao">
+                <summary>Saiba mais...</summary>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam porro ea suscipit, voluptatum nobis
+                  rerum distinctio, velit tempore iste illo blanditiis molestiae pariatur amet similique veniam
+                  architecto optio accusantium veritatis.</p>
+              </details>
+            </div>
+          </div>
+
+          <div class="projeto-container">
+            <div class="projeto">
+              <img src="imagens/projeto-02-cordel.jpg" alt="" class="foto">
+              <div class="projeto-info">
+                <p class="periodo">2025</p>
+                <h3 class="titulo">Projeot de Cordel</h3>
+                <p>Projeto construído para treinar efeitos paralax em imagens.</p>
+
+                <details class="descricao">
+                  <summary>Saiba mais...</summary>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam porro ea suscipit, voluptatum nobis
+                    rerum distinctio, velit tempore iste illo blanditiis molestiae pariatur amet similique veniam
+                    architecto optio accusantium veritatis.</p>
+                </details>
+              </div>
+            </div>
+
+            <div class="projeto-container">
+              <div class="projeto android">
+                <img src="imagens/projeto-03-android.jpg" alt="" class="foto">
+                <div class="projeto-info">
+                  <p class="periodo">2025</p>
+                  <h3 class="titulo">Projeot android</h3>
+                  <p>Projeto construído para treinar conteúdos e imagens dinâmicas.</p>
+
+                  <details class="descricao">
+                    <summary>Saiba mais...</summary>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam porro ea suscipit, voluptatum nobis
+                      rerum distinctio, velit tempore iste illo blanditiis molestiae pariatur amet similique veniam
+                      architecto optio accusantium veritatis.</p>
+                  </details>
+                </div>
+              </div>
+
+            </div>
       </article><!--FIm projetos-->
     </section>
   </main>
 
   <footer>
-
+    <p>
+      Portifólio desenvolvido por <a href="">Rafael</a> como Treino do Curso em Vídeo 2026
+    </p>
   </footer>
   <script src="scripts/script.js"></script>
 </body>
