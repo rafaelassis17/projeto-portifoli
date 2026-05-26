@@ -38,3 +38,8 @@ navLinks.forEach(link => {
     }
   });
 });
+
+
+function mostrarAviso() {
+alert("Este contato é exclusivo para divulgação de vagas. Não recebemos candidaturas. Todas as vagas publicadas possuem seus meios de candidatura. Por favor, leia atentamente a postagem e siga as orientações informadas. Agradecemos a compreensão.");
+}
